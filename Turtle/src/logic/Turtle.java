@@ -1,3 +1,4 @@
+package logic;
 
 public class Turtle {
 	//Variablen hierher
@@ -34,5 +35,13 @@ public class Turtle {
 	}
 	public String getColor(){ 
 		return color;
+	}
+
+	public void setPenState(boolean penState) {
+		this.penState = penState;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 }

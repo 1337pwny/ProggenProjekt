@@ -1,3 +1,4 @@
+package logic;
 import java.util.List;
 
 public class Parser {
@@ -11,10 +12,8 @@ public class Parser {
 			if(item.getName()==args[0]){
 				return item.moveTurtle(workTurtle, args);
 			}
-			else{
-				return 666;
-			}
 		}
+		return 666;
 	}
 
 }
