@@ -1,10 +1,20 @@
 
 public class Turtle {
+	//Variablen hierher
 	private Position actualPosition;
 	private Position lastPosition;
+	private boolean penState;
+	private String color;
+	//Throws exeption for commands oder gitb wert zurück
+	public int parse(String arguments){
+		return 1;
+	}
+	
 	public Turtle() {
 		this.actualPosition = new Position();
 		this.lastPosition = new Position();
+		penState=false;
+		color="black";
 	}
 	
 	public void setPosition(Position position){
@@ -19,5 +29,10 @@ public class Turtle {
 	public Position getLastPosition() {
 		return lastPosition;
 	}
-	
+	public boolean getPenState(){
+		return penState;
+	}
+	public String getColor(){ 
+		return color;
+	}
 }
