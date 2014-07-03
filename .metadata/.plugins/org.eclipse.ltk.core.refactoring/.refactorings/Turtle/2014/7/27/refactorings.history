@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;exceptions.SyntaxError&apos; to &apos;SyntaxErrorException&apos;&#x0D;&#x0A;- Original project: &apos;Turtle&apos;&#x0D;&#x0A;- Original element: &apos;exceptions.SyntaxError&apos;&#x0D;&#x0A;- Renamed element: &apos;exceptions.SyntaxErrorException&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SyntaxError&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;exceptions{SyntaxError.java[SyntaxError" matchStrategy="1" name="SyntaxErrorException" qualified="false" references="true" similarDeclarations="false" stamp="1404386309669" textual="false" version="1.0"/>
+</session>

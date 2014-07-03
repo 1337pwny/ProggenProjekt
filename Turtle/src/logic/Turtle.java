@@ -8,31 +8,10 @@ public class Turtle {
 	private Position lastPosition;
 	private boolean penState;
 	private String color;
-	private HashMap variables;
+	
 	//Throws exeption for commands oder gitb wert zurück
 	public int parse(String arguments){
 		return 1;
-	}
-	
-	public void addVariable(String name, int startValue){
-		if(variables.get(name)==null){
-			if(startValue!=0){
-				variables.put(name, startValue);
-			}
-			else{
-				variables.put(name, 0);
-			}
-		}
-		else{
-			//Variable is already in use
-		}
-	}
-	public int getVariable(String name){
-		int tmp=variables.get(name);
-		if(tmp!=0){
-			return tmp;
-		}
-		//Ansonsten return fail weil var not found
 	}
 	
 	public Turtle() {
