@@ -6,11 +6,13 @@ public class Position {
 		this.positionY = 0;
 		this.angle = 0;
 		this.penState=true;
+		this.clearScreen=false;
 	}
 	private int positionX;
 	private int positionY;
 	private int angle;
 	boolean penState;
+	boolean clearScreen;
 	public int getPositionX() {
 		return positionX;
 	}
@@ -35,5 +37,10 @@ public class Position {
 	public void setPenState(boolean state) {
 		this.penState=state;
 	}
-
+	public boolean getClearScreen() {
+		return clearScreen;
+	}
+	public void setClearScreen(boolean state) {
+		this.clearScreen=state;
+	}
 }

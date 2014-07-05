@@ -12,12 +12,12 @@ public class Right implements Parseable{
 	}
 
 	@Override
-	public int moveTurtle(Turtle workTurtle, String[] args) {
+	public void moveTurtle(Turtle workTurtle, String[] args) {
 		Position workPosition=workTurtle.getActualPosition();
 		int angle=Integer.parseInt(args[1]);
 		workPosition.setAngle(workPosition.getAngle()+angle);
 		workTurtle.setPosition(workPosition);
-		return 0;
+	
 	}
 
 }

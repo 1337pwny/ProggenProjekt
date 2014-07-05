@@ -1,6 +1,7 @@
 package logic;
 
 import java.util.HashMap;
+import java.util.List;
 
 import exceptions.VariableAlreadyInUseException;
 import exceptions.VariableNotFoundException;
@@ -8,10 +9,10 @@ import exceptions.VariableNotFoundException;
 public class Turtle {
 	//Variablen hierher
 	private Position actualPosition;
-	private Position lastPosition;
 	private boolean penState;
 	private String color;
 	private HashMap<String, Integer> variables;
+	private List<Position> positionList;
 	
 	//Throws exeption for commands oder gitb wert zurück
 	public int parse(String arguments){
@@ -20,10 +21,7 @@ public class Turtle {
 	
 	public Turtle() {
 		this.actualPosition = new Position();
-		this.lastPosition = new Position();
-		penState=false;
-		color="black";
-		
+		positionList.add(this.actualPosition);
 	}
 	public void addVariable(String name, int startValue) throws Exception{
 		if(variables.get(name)==null){
@@ -47,29 +45,15 @@ public class Turtle {
 		throw new VariableNotFoundException();
 	}
 	public void setPosition(Position position){
-		this.lastPosition=this.actualPosition;
 		this.actualPosition=position;
+		positionList.add(position);
 	}
 
 	public Position getActualPosition() {
 		return actualPosition;
 	}
 
-	public Position getLastPosition() {
-		return lastPosition;
-	}
-	public boolean getPenState(){
-		return penState;
-	}
-	public String getColor(){ 
-		return color;
-	}
-
-	public void setPenState(boolean penState) {
-		this.penState = penState;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
+	public Position[] getPositions() {
+		return (Position[]) positionList.toArray();
 	}
 }

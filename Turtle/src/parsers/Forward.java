@@ -1,4 +1,5 @@
 package parsers;
+import exceptions.VariableNotFoundException;
 import logic.Parseable;
 import logic.Turtle;
 import logic.Position;
@@ -10,7 +11,7 @@ public class Forward implements Parseable {
 	}
 
 	@Override
-	public void moveTurtle(Turtle workTurtle, String[] args) {
+	public void moveTurtle(Turtle workTurtle, String[] args)throws Exception {
 		Position workPosition=workTurtle.getActualPosition();
 		int distance=0;
 		//Testing for a real number
@@ -18,7 +19,11 @@ public class Forward implements Parseable {
 			distance=Integer.parseInt(args[1]);
 		}//Else its assumed to be a variable --> Fail: Throw unknowVariableException
 		catch(NumberFormatException e){
-			distance=workTurtle.getVariable(args[1]);
+			try {
+				distance=workTurtle.getVariable(args[1]);
+			} catch (VariableNotFoundException e1) {
+				throw e1;
+			}
 		}
 		//setting the positions
 		workPosition.setPositionX((int)(workPosition.getPositionX()+distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
