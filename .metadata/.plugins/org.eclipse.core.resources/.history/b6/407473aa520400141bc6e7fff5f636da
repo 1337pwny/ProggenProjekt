@@ -24,13 +24,8 @@ public class Parser {
 		//Add all other parsers
 		
 	}
-	Position[] getTurtlePositions(){
-		//Returns the Position Array
-		return null;
-		
-	}
 	
-	private void parse(String arguments) throws Exception{
+	public void parse(String arguments) throws Exception{
 		String[] args=arguments.split(" ");
 		for (Parseable item : parserList) {
 			if(item.getName()==args[0]){
@@ -46,25 +41,8 @@ public class Parser {
 		throw new ParserNotFoundException();
 	}
 	
-	
-	public Position[] parseAll(String[] arguments) throws Exception{
-		for(int i=0;i<arguments.length;i++){
-			String[] args=arguments[i].split(" ");
-			//Repeat is the only expression whcih is handled directly by the parser
-			if(args[0]=="repeat"){
-				//Hier muss dann der Lopp gebastelt werden
-			}
-			else{
-				try{
-					parse(arguments[i]);
-				}
-				catch (Exception e){
-					throw e;
-				}
-			}
-		}
-		
-		return null;
+	public Turtle getTurtle(){
+		return turtle;
 	}
 
 }

@@ -1,5 +1,0 @@
-
-public interface Parseable {
-	public String getName();
-	public void moveTurtle(Turtle workTurtle);
-}

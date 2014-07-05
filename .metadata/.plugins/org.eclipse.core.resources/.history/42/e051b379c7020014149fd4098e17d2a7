@@ -1,7 +1,10 @@
 package logic;
+import java.util.HashMap;
 import java.util.List;
 
 import exceptions.ParserNotFoundException;
+import exceptions.VariableAlreadyInUseException;
+import exceptions.VariableNotFoundException;
 import parsers.Backwards;
 import parsers.Forward;
 import parsers.Left;
@@ -12,7 +15,7 @@ public class Parser {
 	//Hier liste aller Parseable objekte
 	private List<Parseable> parserList;
 	private Turtle turtle;
-	
+	private HashMap variables;
 	
 	public Parser(){
 		turtle=new Turtle();
@@ -20,25 +23,14 @@ public class Parser {
 		parserList.add(new Forward());
 		parserList.add(new Left());
 		parserList.add(new Right());
-		//TODO
-		//Add all other parsers
-		
-	}
-	Position[] getTurtlePositions(){
-		//Returns the Position Array
-		return null;
 		
 	}
 	
-	private void parse(String arguments) throws Exception{
+	public void parse(String arguments, Turtle workTurtle) throws ParserNotFoundException{
 		String[] args=arguments.split(" ");
 		for (Parseable item : parserList) {
 			if(item.getName()==args[0]){
-				try {
-					item.moveTurtle(turtle, args);
-				} catch (Exception e) {
-					throw e;
-				}
+				item.moveTurtle(workTurtle, args);
 				return;
 			}
 		}
@@ -46,25 +38,25 @@ public class Parser {
 		throw new ParserNotFoundException();
 	}
 	
-	
-	public Position[] parseAll(String[] arguments) throws Exception{
-		for(int i=0;i<arguments.length;i++){
-			String[] args=arguments[i].split(" ");
-			//Repeat is the only expression whcih is handled directly by the parser
-			if(args[0]=="repeat"){
-				//Hier muss dann der Lopp gebastelt werden
+	private void addVariable(String name, int startValue) throws Exception{
+		if(variables.get(name)==null){
+			if(startValue!=0){
+				variables.put(name, startValue);
 			}
 			else{
-				try{
-					parse(arguments[i]);
-				}
-				catch (Exception e){
-					throw e;
-				}
+				variables.put(name, 0);
 			}
 		}
-		
-		return null;
+		else{
+			throw new VariableAlreadyInUseException();
+		}
 	}
 
+	private int getVariable(String name) throws VariableNotFoundException{
+		int tmp=(int) variables.get(name);
+		if(tmp!=0){
+			return tmp;
+		}
+		throw new VariableNotFoundException();
+	}
 }

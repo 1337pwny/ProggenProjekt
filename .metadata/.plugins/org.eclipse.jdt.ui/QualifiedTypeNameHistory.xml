@@ -6,4 +6,11 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+<fullyQualifiedTypeName name="parsers.Backwards"/>
+<fullyQualifiedTypeName name="parsers.Forward"/>
+<fullyQualifiedTypeName name="parsers.Left"/>
+<fullyQualifiedTypeName name="parsers.Right"/>
+<fullyQualifiedTypeName name="exceptions.ParserNotFoundException"/>
+<fullyQualifiedTypeName name="exceptions.VariableAlreadyInUseException"/>
+<fullyQualifiedTypeName name="exceptions.VariableNotFoundException"/>
 </qualifiedTypeNameHistroy>

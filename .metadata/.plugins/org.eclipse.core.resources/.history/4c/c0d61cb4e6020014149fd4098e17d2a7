@@ -11,7 +11,7 @@ public class Turtle {
 	private Position lastPosition;
 	private boolean penState;
 	private String color;
-	private HashMap<String, Integer> variables;
+	private HashMap variables;
 	
 	//Throws exeption for commands oder gitb wert zurück
 	public int parse(String arguments){
