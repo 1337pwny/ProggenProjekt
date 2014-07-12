@@ -15,6 +15,12 @@ public class Position {
 	boolean penState;
 	boolean clearScreen;
 	String color;
+	public String getColor(){
+		return color;
+	}
+	public void setColor(String color){
+		this.color=color;
+	}
 	public int getPositionX() {
 		return positionX;
 	}
