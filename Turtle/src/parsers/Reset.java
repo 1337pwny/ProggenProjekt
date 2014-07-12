@@ -4,17 +4,17 @@ import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
 
-public class PenUp implements Parseable {
+public class Reset implements Parseable{
 
 	@Override
 	public String getName() {
-		return "penup";
+		return "reset";
 	}
 
 	@Override
 	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
-		Position tmp=workTurtle.getActualPosition();
-		tmp.setPenState(true);
-		workTurtle.setPosition(tmp);
+		//It is simpler to add a new Position with pre initialized variables than altering the old one
+		workTurtle.setPosition(new Position());
 	}
+
 }

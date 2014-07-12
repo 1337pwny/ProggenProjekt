@@ -4,17 +4,18 @@ import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
 
-public class PenUp implements Parseable {
+public class SetColor implements Parseable {
 
 	@Override
 	public String getName() {
-		return "penup";
+		return "setcolor";
 	}
 
 	@Override
 	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
 		Position tmp=workTurtle.getActualPosition();
-		tmp.setPenState(true);
+		tmp.setColor(args[1]);
 		workTurtle.setPosition(tmp);
 	}
+
 }

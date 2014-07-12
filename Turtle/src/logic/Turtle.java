@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,18 +10,18 @@ import exceptions.VariableNotFoundException;
 public class Turtle {
 	//Variablen hierher
 	private Position actualPosition;
+	private boolean penState;
+	private String color;
 	private HashMap<String, Integer> variables;
 	private List<Position> positionList;
 	
-	//Throws exeption for commands oder gitb wert zurï¿½ck
-	public int parse(String arguments){
-		return 1;
-	}
-	
 	public Turtle() {
 		this.actualPosition = new Position();
+		positionList=new ArrayList<Position>();
 		positionList.add(this.actualPosition);
 	}
+	//Throws exeption for commands oder gitb wert zurück
+
 	public void addVariable(String name, int startValue) throws Exception{
 		if(variables.get(name)==null){
 			if(startValue!=0){
@@ -42,6 +43,10 @@ public class Turtle {
 		}
 		throw new VariableNotFoundException();
 	}
+	public void setVariable(String name, int value) throws VariableNotFoundException{
+		 //If the variable is nonexistent it will be created
+		variables.put(name, value);
+	}
 	public void setPosition(Position position){
 		this.actualPosition=position;
 		positionList.add(position);
@@ -52,6 +57,11 @@ public class Turtle {
 	}
 
 	public Position[] getPositions() {
-		return (Position[]) positionList.toArray();
+		Position[] tmp= new Position[positionList.size()];
+		for(int i=0;i<positionList.size();i++){
+			System.out.println("PosX: "+positionList.get(i).getPositionX()+" PosY: "+positionList.get(i).getPositionY()+" Angle: "+positionList.get(i).getAngle());
+			tmp[i]=positionList.get(i);
+		}
+		return tmp;
 	}
 }

@@ -1,20 +1,25 @@
 package parsers;
 
 import logic.Parseable;
-import logic.Position;
 import logic.Turtle;
 
-public class PenUp implements Parseable {
+public class Let implements Parseable {
 
 	@Override
 	public String getName() {
-		return "penup";
+		return "let";
 	}
 
 	@Override
 	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
-		Position tmp=workTurtle.getActualPosition();
-		tmp.setPenState(true);
-		workTurtle.setPosition(tmp);
+		int var;
+		try{
+			var=Integer.parseInt(args[2]);
+		}
+		catch(NumberFormatException e){
+			throw e;
+		}
+		workTurtle.setVariable(args[1], var);
 	}
+
 }
