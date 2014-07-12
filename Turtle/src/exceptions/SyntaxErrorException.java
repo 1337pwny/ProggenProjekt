@@ -1,6 +1,6 @@
 package exceptions;
 /**
- * @author ITGrufti
+ *
  * Is thrown, if a syntax error was found.
  */
 public class SyntaxErrorException extends Exception {

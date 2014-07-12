@@ -26,6 +26,7 @@ public class Backwards implements Parseable {
 				throw e2;
 			}
 		}
+		workPosition.setClearScreen(false);
 		//setting the positions
 		workPosition.setPositionX((int)(workPosition.getPositionX()-distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
 		workPosition.setPositionY((int)(workPosition.getPositionY()-distance*Math.sin(Math.PI/180 * workPosition.getAngle())));

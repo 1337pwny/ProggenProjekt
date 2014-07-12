@@ -25,6 +25,7 @@ public class Forward implements Parseable {
 				throw e1;
 			}
 		}
+		workPosition.setClearScreen(false);
 		//setting the positions
 		workPosition.setPositionX((int)(workPosition.getPositionX()+distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
 		workPosition.setPositionY((int)(workPosition.getPositionY()+distance*Math.sin(Math.PI/180 * workPosition.getAngle())));

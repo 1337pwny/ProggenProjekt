@@ -15,6 +15,7 @@ public class SetColor implements Parseable {
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		Position tmp=workTurtle.getActualPosition();
 		tmp.setColor(args[1]);
+		tmp.setClearScreen(false);
 		workTurtle.setPosition(tmp);
 	}
 

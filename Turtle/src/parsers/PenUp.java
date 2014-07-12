@@ -15,6 +15,7 @@ public class PenUp implements Parseable {
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		Position tmp=workTurtle.getActualPosition();
 		tmp.setPenState(true);
+		tmp.setClearScreen(false);
 		workTurtle.setPosition(tmp);
 	}
 }

@@ -16,6 +16,7 @@ public class Right implements Parseable{
 		Position workPosition=workTurtle.getActualPosition();
 		int angle=Integer.parseInt(args[1]);
 		workPosition.setAngle(workPosition.getAngle()+angle);
+		workPosition.setClearScreen(false);
 		workTurtle.setPosition(workPosition);
 	
 	}
