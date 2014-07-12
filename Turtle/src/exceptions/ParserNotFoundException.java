@@ -1,10 +1,13 @@
 package exceptions;
 
 public class ParserNotFoundException extends Exception {
-public ParserNotFoundException(){		
-}
 
-public ParserNotFoundException(String s){
-	super(s);
-}
+	private static final long serialVersionUID = 1L;
+
+	public ParserNotFoundException(){		
+	}
+	
+	public ParserNotFoundException(String s){
+		super(s);
+	}
 }

@@ -1,0 +1,21 @@
+package parsers;
+
+import logic.Parseable;
+import logic.Position;
+import logic.Turtle;
+
+public class PenUp implements Parseable {
+
+	@Override
+	public String getName() {
+		return "penup";
+	}
+
+	@Override
+	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
+		Position tmp=workTurtle.getActualPosition();
+		tmp.setPenState(true);
+		workTurtle.setPosition(tmp);
+	}
+
+}

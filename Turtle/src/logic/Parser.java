@@ -8,8 +8,6 @@ import parsers.Left;
 import parsers.Right;
 
 public class Parser {
-	//Hier noch die Variablen tuen
-	//Hier liste aller Parseable objekte
 	private List<Parseable> parserList;
 	private Turtle turtle;
 	
@@ -50,9 +48,10 @@ public class Parser {
 	public Position[] parseAll(String[] arguments) throws Exception{
 		for(int i=0;i<arguments.length;i++){
 			String[] args=arguments[i].split(" ");
-			//Repeat is the only expression whcih is handled directly by the parser
+			//Repeat is the only expression which is handled directly by the parser
 			if(args[0]=="repeat"){
-				//Hier muss dann der Lopp gebastelt werden
+			//Hier muss dann der Loop gebastelt werden
+				
 			}
 			else{
 				try{
