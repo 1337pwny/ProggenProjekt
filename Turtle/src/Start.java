@@ -1,35 +1,39 @@
-import logic.Parser;
-import logic.Position;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+
 
 
 public class Start {
 
+
+	public static PanelWest paintPane = new PanelWest();
+	public static PanelEast workingPane = new PanelEast();
+	public static PanelSouth statusPane = new PanelSouth();
+
 	public static void main(String[] args) {
-		Parser demo=new  Parser();
-		String[] bla=new String[3];
-		bla[0]="clear";
-		bla[1]="forward 2";
-		bla[2]="forward 2";
-		Position[] pos;
-		try {
-			pos=demo.parseAll(bla);
-			if(pos==null)
-			{
-				System.out.println("NULL");
-			}
-			else{
-			print(pos);
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		
+		
+		JFrame ground = new JFrame();
+		ground.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		
+		Dimension windowSize = new Dimension(800, 600);
+		
+		ground.setSize(windowSize);
+		ground.setResizable(false);
+		
+		ground.setTitle("Turtle by Dähn & Rohde");
+		ground.getContentPane().add(workingPane, BorderLayout.EAST);
+		ground.getContentPane().add(statusPane, BorderLayout.SOUTH);
+		ground.getContentPane().add(paintPane, BorderLayout.CENTER);
+		
+				
+		ground.setVisible(true);
 		}
+
+		
 	}
-	public static void print(Position[] pos){
-		for(int i=0;i<pos.length;i++){
-			System.out.println("Pos: "+i+" CLS: "+pos[i].getClearScreen());
-			System.out.println("X: "+pos[i].getPositionX()+" Y: "+pos[i].getPositionY());
-			System.out.println("Angle: "+pos[i].getAngle()+" pen: "+pos[i].getPenState());
-		}
-	}
-}
+		
