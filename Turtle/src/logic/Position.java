@@ -7,12 +7,14 @@ public class Position {
 		this.angle = 0;
 		this.penState=true;
 		this.clearScreen=false;
+		this.color="black";
 	}
 	private int positionX;
 	private int positionY;
 	private int angle;
 	boolean penState;
 	boolean clearScreen;
+	String color;
 	public int getPositionX() {
 		return positionX;
 	}
