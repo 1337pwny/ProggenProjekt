@@ -9,12 +9,10 @@ import exceptions.VariableNotFoundException;
 public class Turtle {
 	//Variablen hierher
 	private Position actualPosition;
-	private boolean penState;
-	private String color;
 	private HashMap<String, Integer> variables;
 	private List<Position> positionList;
 	
-	//Throws exeption for commands oder gitb wert zurück
+	//Throws exeption for commands oder gitb wert zurï¿½ck
 	public int parse(String arguments){
 		return 1;
 	}
