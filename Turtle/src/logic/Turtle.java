@@ -6,20 +6,29 @@ import java.util.List;
 
 import exceptions.VariableAlreadyInUseException;
 import exceptions.VariableNotFoundException;
-
+/**
+ * Virtual Turtle. Stores Variables and all Positions.
+ */
 public class Turtle {
-	//Variablen hierher
 	private Position actualPosition;
 	private HashMap<String, Integer> variables;
 	private List<Position> positionList;
 	
+	/**
+	 * Initializes the Turtle and adds a start Position
+	 */
 	public Turtle() {
 		this.actualPosition = new Position();
 		positionList=new ArrayList<Position>();
 		positionList.add(this.actualPosition);
 	}
-	//Throws exeption for commands oder gitb wert zurück
 
+	/**
+	 * Adds a new Variable and initializes it. Throws an VariableAlreadyInUseException, if the variable is already taken.
+	 * @param name Name of the Variable
+	 * @param startValue Startvalue for the variable. Should be 0 if none is specified
+	 * @throws Exception Throws VariableAlreadyInUseException if the variable is already taken
+	 */
 	public void addVariable(String name, int startValue) throws Exception{
 		if(variables.get(name)==null){
 			if(startValue!=0){
@@ -34,6 +43,12 @@ public class Turtle {
 		}
 	}
 
+	/**
+	 * Returns the value of the desired variable.
+	 * @param name Name of the Variable
+	 * @return Value of the Variable
+	 * @throws VariableNotFoundException Throws VariableNotFoundException, if the desired variable could not be found
+	 */
 	public int getVariable(String name) throws VariableNotFoundException{
 		int tmp=(int) variables.get(name);
 		if(tmp!=0){
@@ -41,19 +56,36 @@ public class Turtle {
 		}
 		throw new VariableNotFoundException();
 	}
-	public void setVariable(String name, int value) throws VariableNotFoundException{
-		 //If the variable is nonexistent it will be created
+	
+	/**
+	 * Sets the value for a variable. If the variable is not existing, it will automatically be created.
+	 * @param name Name of the variable
+	 * @param value Value for the variable
+	 */
+	public void setVariable(String name, int value) {
 		variables.put(name, value);
 	}
+	
+	/**
+	 * Sets the new Position of the Turtle. It will be added to the Positionlist.
+	 * @param position New Position
+	 */
 	public void setPosition(Position position){
 		this.actualPosition=position;
 		positionList.add(position);
 	}
-
+	/**
+	 * Returns the actual Position.
+	 * @return actual Position
+	 */
 	public Position getActualPosition() {
 		return actualPosition;
 	}
 
+	/**
+	 * Returns all Positions as an array.
+	 * @return All Positions
+	 */
 	public Position[] getPositions() {
 		Position[] tmp= new Position[positionList.size()];
 		for(int i=0;i<positionList.size();i++){
