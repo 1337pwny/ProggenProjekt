@@ -3,7 +3,9 @@ import exceptions.VariableNotFoundException;
 import logic.Parseable;
 import logic.Turtle;
 import logic.Position;
-
+/**
+ * Moves the Turtle forwards.
+ */
 public class Forward implements Parseable {
 	@Override
 	public String getName() {

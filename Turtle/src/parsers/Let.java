@@ -1,5 +1,8 @@
 package parsers;
-
+/**
+ * Alters the value of a variable. If the variable could not be found, it will be created. Throws SyntaxErrorException.
+ */
+import exceptions.SyntaxErrorException;
 import logic.Parseable;
 import logic.Turtle;
 
@@ -17,7 +20,7 @@ public class Let implements Parseable {
 			var=Integer.parseInt(args[2]);
 		}
 		catch(NumberFormatException e){
-			throw e;
+			throw new SyntaxErrorException();
 		}
 		workTurtle.setVariable(args[1], var);
 	}

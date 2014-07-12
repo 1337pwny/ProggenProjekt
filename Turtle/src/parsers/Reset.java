@@ -3,7 +3,9 @@ package parsers;
 import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
-
+/**
+ * Resets the Turtle Position to its starting point.
+ */
 public class Reset implements Parseable{
 
 	@Override

@@ -3,7 +3,9 @@ package parsers;
 import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
-
+/**
+ * Sets the new color for the Turtle.
+ */
 public class SetColor implements Parseable {
 
 	@Override

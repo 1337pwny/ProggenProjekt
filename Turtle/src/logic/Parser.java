@@ -36,11 +36,12 @@ public class Parser {
 		parserList.add(new SetColor());
 		parserList.add(new Clear()); 	
 	}
+	
 	/**
 	 * Returns the Positions of the compiled code stepwise. If no code is executed, only the start Position is returned.
 	 * @return Stepwise array of all Positions
 	 */
-	Position[] getTurtlePositions(){
+	public Position[] getTurtlePositions(){
 		return turtle.getPositions();
 	}
 	
