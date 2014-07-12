@@ -13,7 +13,7 @@ public class Clear implements Parseable {
 	}
 
 	@Override
-	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
+	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		Position tmp=workTurtle.getActualPosition();
 		tmp.setClearScreen(true);
 		workTurtle.setPosition(tmp);

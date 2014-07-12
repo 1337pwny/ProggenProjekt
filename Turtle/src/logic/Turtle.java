@@ -10,8 +10,6 @@ import exceptions.VariableNotFoundException;
 public class Turtle {
 	//Variablen hierher
 	private Position actualPosition;
-	private boolean penState;
-	private String color;
 	private HashMap<String, Integer> variables;
 	private List<Position> positionList;
 	
@@ -59,7 +57,6 @@ public class Turtle {
 	public Position[] getPositions() {
 		Position[] tmp= new Position[positionList.size()];
 		for(int i=0;i<positionList.size();i++){
-			System.out.println("PosX: "+positionList.get(i).getPositionX()+" PosY: "+positionList.get(i).getPositionY()+" Angle: "+positionList.get(i).getAngle());
 			tmp[i]=positionList.get(i);
 		}
 		return tmp;

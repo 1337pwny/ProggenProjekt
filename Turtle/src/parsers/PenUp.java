@@ -12,7 +12,7 @@ public class PenUp implements Parseable {
 	}
 
 	@Override
-	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
+	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		Position tmp=workTurtle.getActualPosition();
 		tmp.setPenState(true);
 		workTurtle.setPosition(tmp);

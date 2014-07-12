@@ -24,8 +24,7 @@ public class Parser {
 	}
 	Position[] getTurtlePositions(){
 		//Returns the Position Array
-		return null;
-		
+		return turtle.getPositions();
 	}
 	
 	private void parse(String arguments) throws Exception{
@@ -33,7 +32,7 @@ public class Parser {
 		for (Parseable item : parserList) {
 			if(item.getName()==args[0]){
 				try {
-					item.moveTurtle(turtle, args);
+					item.handleTurtle(turtle, args);
 				} catch (Exception e) {
 					throw e;
 				}

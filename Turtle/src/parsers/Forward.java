@@ -11,7 +11,7 @@ public class Forward implements Parseable {
 	}
 
 	@Override
-	public void moveTurtle(Turtle workTurtle, String[] args)throws Exception {
+	public void handleTurtle(Turtle workTurtle, String[] args)throws Exception {
 		Position workPosition=workTurtle.getActualPosition();
 		int distance=0;
 		//Testing for a real number

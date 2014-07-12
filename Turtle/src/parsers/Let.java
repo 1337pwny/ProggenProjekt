@@ -11,7 +11,7 @@ public class Let implements Parseable {
 	}
 
 	@Override
-	public void moveTurtle(Turtle workTurtle, String[] args) throws Exception {
+	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		int var;
 		try{
 			var=Integer.parseInt(args[2]);

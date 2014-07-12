@@ -11,7 +11,7 @@ public class Backwards implements Parseable {
 	}
 
 	@Override
-	public void moveTurtle(Turtle workTurtle, String[] args) throws VariableNotFoundException {
+	public void handleTurtle(Turtle workTurtle, String[] args) throws VariableNotFoundException {
 		Position workPosition=workTurtle.getActualPosition();
 		int distance=0;
 		//Testing for a real number
