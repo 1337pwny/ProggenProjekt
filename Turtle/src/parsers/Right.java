@@ -16,7 +16,8 @@ public class Right implements Parseable{
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
-		Position workPosition=workTurtle.getActualPosition();
+		Position wp=workTurtle.getActualPosition();
+		Position workPosition=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		int angle;
 		try{
 			angle=Integer.parseInt(args[1]);

@@ -1,6 +1,6 @@
 package parsers;
 /**
- * Sets the clearState.
+ *Sets the clearState.
  */
 
 import logic.Parseable;
@@ -16,7 +16,8 @@ public class Clear implements Parseable {
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
-		Position tmp=workTurtle.getActualPosition();
+		Position wp=workTurtle.getActualPosition();
+		Position tmp=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		tmp.setClearScreen(true);
 		workTurtle.setPosition(tmp);
 	}

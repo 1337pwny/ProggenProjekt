@@ -1,8 +1,35 @@
+import logic.Parser;
+import logic.Position;
+
 
 public class Start {
 
 	public static void main(String[] args) {
-System.out.println("DEMO");
+		Parser demo=new  Parser();
+		String[] bla=new String[3];
+		bla[0]="clear";
+		bla[1]="forward 2";
+		bla[2]="forward 2";
+		Position[] pos;
+		try {
+			pos=demo.parseAll(bla);
+			if(pos==null)
+			{
+				System.out.println("NULL");
+			}
+			else{
+			print(pos);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
+	public static void print(Position[] pos){
+		for(int i=0;i<pos.length;i++){
+			System.out.println("Pos: "+i+" CLS: "+pos[i].getClearScreen());
+			System.out.println("X: "+pos[i].getPositionX()+" Y: "+pos[i].getPositionY());
+			System.out.println("Angle: "+pos[i].getAngle()+" pen: "+pos[i].getPenState());
+		}
+	}
 }

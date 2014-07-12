@@ -1,6 +1,6 @@
 package parsers;
 /**
- * Alters the angle of the Turtle to the left. If the angle exceeds -180 degree is set to -180 degree.
+ *Alters the angle of the Turtle to the left. If the angle exceeds -180 degree is set to -180 degree.
  */
 import exceptions.VariableNotFoundException;
 import logic.Parseable;
@@ -16,7 +16,8 @@ public class Left implements Parseable{
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
-		Position workPosition=workTurtle.getActualPosition();
+		Position wp=workTurtle.getActualPosition();
+		Position workPosition=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		int angle;
 		try{
 			angle=Integer.parseInt(args[1]);

@@ -14,7 +14,9 @@ public class Backwards implements Parseable {
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws VariableNotFoundException {
-		Position workPosition=workTurtle.getActualPosition();
+		Position wp=workTurtle.getActualPosition();
+		Position workPosition=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
+				
 		int distance=0;
 		//Testing for a real number
 		try{
@@ -29,7 +31,6 @@ public class Backwards implements Parseable {
 			}
 		}
 		workPosition.setClearScreen(false);
-		//setting the positions
 		workPosition.setPositionX((int)(workPosition.getPositionX()-distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
 		workPosition.setPositionY((int)(workPosition.getPositionY()-distance*Math.sin(Math.PI/180 * workPosition.getAngle())));
 		workTurtle.setPosition(workPosition);

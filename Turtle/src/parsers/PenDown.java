@@ -1,6 +1,6 @@
 package parsers;
 /**
- * Sets the virtual pen down.
+ *Sets the virtual pen down.
  */
 import logic.Parseable;
 import logic.Position;
@@ -15,7 +15,8 @@ public class PenDown implements Parseable {
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
-		Position tmp=workTurtle.getActualPosition();
+		Position wp=workTurtle.getActualPosition();
+		Position tmp=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		tmp.setPenState(false);
 		tmp.setClearScreen(false);
 		workTurtle.setPosition(tmp);

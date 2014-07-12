@@ -1,4 +1,5 @@
 package logic;
+import java.util.ArrayList;
 import java.util.List;
 
 import exceptions.ParserNotFoundException;
@@ -24,6 +25,7 @@ public class Parser {
 	 * Initializes the Parser and an internal Turtle. Also adds all available parsers.
 	 */
 	public Parser(){
+		parserList=new ArrayList<Parseable>();
 		turtle=new Turtle();
 		parserList.add(new Backwards());
 		parserList.add(new Forward());
@@ -52,10 +54,10 @@ public class Parser {
 	 */
 	private void parse(String arguments) throws Exception{
 		String[] args=arguments.split(" ");
-		for (Parseable item : parserList) {
-			if(item.getName()==args[0]){
+		for (int i=0;i<parserList.size();i++){
+			if(parserList.get(i).getName().equals(args[0])){
 				try {
-					item.handleTurtle(turtle, args);
+					parserList.get(i).handleTurtle(turtle, args);
 				} catch (Exception e) {
 					throw e;
 				}
@@ -90,7 +92,7 @@ public class Parser {
 			}
 		}
 		
-		return null;
+		return turtle.getPositions();
 	}
 
 }

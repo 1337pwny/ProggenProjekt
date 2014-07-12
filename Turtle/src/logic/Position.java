@@ -21,6 +21,23 @@ public class Position {
 		this.clearScreen=false;
 		this.color="black";
 	}
+	/**
+	 * Initializes a Position object with predefined variables
+	 * @param posX Position X
+	 * @param posY Position Y
+	 * @param angle Angle
+	 * @param penState PenState
+	 * @param clear Clear attribute
+	 * @param color Color
+	 */
+	public Position(int posX, int posY, int angle, boolean penState, boolean clear, String color){
+		this.positionX = posX;
+		this.positionY = posY;
+		this.angle = angle;
+		this.penState=penState;
+		this.clearScreen=clear;
+		this.color=color;
+	}
 	
 	/**
 	 * Returns the drawing color.

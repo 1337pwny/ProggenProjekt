@@ -18,9 +18,11 @@ public class Turtle {
 	 * Initializes the Turtle and adds a start Position
 	 */
 	public Turtle() {
-		this.actualPosition = new Position();
+		Position tmp;
+		tmp = new Position();
 		positionList=new ArrayList<Position>();
-		positionList.add(this.actualPosition);
+		positionList.add(tmp);
+		actualPosition=tmp;
 	}
 
 	/**
@@ -71,8 +73,8 @@ public class Turtle {
 	 * @param position New Position
 	 */
 	public void setPosition(Position position){
-		this.actualPosition=position;
 		positionList.add(position);
+		this.actualPosition=position;
 	}
 	/**
 	 * Returns the actual Position.

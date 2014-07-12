@@ -14,7 +14,8 @@ public class Forward implements Parseable {
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args)throws Exception {
-		Position workPosition=workTurtle.getActualPosition();
+		Position wp=workTurtle.getActualPosition();
+		Position workPosition=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		int distance=0;
 		//Testing for a real number
 		try{
