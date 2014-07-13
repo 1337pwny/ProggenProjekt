@@ -4,12 +4,12 @@ import java.awt.Color;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * It shows the status line and step counter. 
+ * @author Benjamin Dähn
+ */
 public class PanelSouth extends JPanel {
-	/**
-	 * It shows the status line and step counter. 
-	 * @author Benjamin Dähn
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	JLabel status = new JLabel("Ready");

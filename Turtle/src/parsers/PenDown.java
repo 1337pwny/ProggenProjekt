@@ -1,6 +1,6 @@
 package parsers;
 /**
- *Sets the virtual pen down.
+ * Sets the virtual pen down.
  * @author Nils Rohde
  */
 import logic.Parseable;

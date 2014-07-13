@@ -1,6 +1,6 @@
 package parsers;
 /**
- *Alters the value of a variable. If the variable could not be found, it will be created. Throws SyntaxErrorException.
+ * Alters the value of a variable. If the variable could not be found, it will be created. Throws SyntaxErrorException.
  * @author Nils Rohde
  * @throws VariableNotFoundException
  */
