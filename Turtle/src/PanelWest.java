@@ -20,7 +20,7 @@ public class PanelWest extends JPanel {
 
 	int homeY = 280;
 	int startY = 280;
-	int endY = 280 - 1;		//-1 to look to north
+	int endY = 280-1;//to look north		
 	
 
 	int i = 0;
@@ -51,8 +51,8 @@ public class PanelWest extends JPanel {
 		
 	
 	}
-		startX = endX;
-		startY = endY;
+	//	startX = endX;
+	//	startY = endY;
 
 
 		}

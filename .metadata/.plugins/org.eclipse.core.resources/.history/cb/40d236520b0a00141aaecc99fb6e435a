@@ -1,0 +1,28 @@
+import logic.Parser;
+import logic.Position;
+
+
+public class Start {
+
+	public static void main(String[] args) {
+		Parser demo=new  Parser();
+		String[] bla=new String[2];
+		bla[0]="clear";
+		bla[1]="forward 1";
+		Position[] pos;
+		try {
+			pos=demo.parseAll(bla);
+			if(pos==null)
+			{
+				System.out.println("NULL");
+			}
+			else{
+			System.out.println(pos[0].getClearScreen());
+			System.out.println(pos[1].getClearScreen());
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

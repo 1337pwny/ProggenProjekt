@@ -1,0 +1,23 @@
+package parsers;
+/**
+ * Sets the virtual pen up.
+ */
+import logic.Parseable;
+import logic.Position;
+import logic.Turtle;
+
+public class PenUp implements Parseable {
+
+	@Override
+	public String getName() {
+		return "penup";
+	}
+
+	@Override
+	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
+		Position tmp=workTurtle.getActualPosition();
+		tmp.setPenState(true);
+		tmp.setClearScreen(false);
+		workTurtle.setPosition(tmp);
+	}
+}

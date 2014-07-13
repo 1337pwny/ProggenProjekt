@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="logic.Parseable"/>
-<fullyQualifiedTypeName name="logic.Position"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
@@ -12,5 +11,15 @@
 <fullyQualifiedTypeName name="parsers.Right"/>
 <fullyQualifiedTypeName name="exceptions.ParserNotFoundException"/>
 <fullyQualifiedTypeName name="exceptions.VariableAlreadyInUseException"/>
+<fullyQualifiedTypeName name="parsers.Let"/>
+<fullyQualifiedTypeName name="parsers.PenDown"/>
+<fullyQualifiedTypeName name="parsers.PenUp"/>
+<fullyQualifiedTypeName name="parsers.Reset"/>
+<fullyQualifiedTypeName name="parsers.SetColor"/>
+<fullyQualifiedTypeName name="parsers.Clear"/>
 <fullyQualifiedTypeName name="exceptions.VariableNotFoundException"/>
+<fullyQualifiedTypeName name="exceptions.SyntaxErrorException"/>
+<fullyQualifiedTypeName name="logic.Parser"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="logic.Position"/>
 </qualifiedTypeNameHistroy>

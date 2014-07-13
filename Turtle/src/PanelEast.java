@@ -19,13 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
-
-import logic.Parser;
-import logic.Position;
-import exceptions.ParserNotFoundException;
-import exceptions.SyntaxErrorException;
-import exceptions.VariableAlreadyInUseException;
-import exceptions.VariableNotFoundException;
+import javax.swing.Timer;
 
 public class PanelEast extends JPanel implements ActionListener {
 
@@ -33,15 +27,13 @@ public class PanelEast extends JPanel implements ActionListener {
 
 	JTextArea inputManual = new JTextArea(28, 0);
 	JSlider sliderSpeed = new JSlider();
-	//Parser pars = new Parser();
-	Parser pars;
-	Position[] turtlePosition;
-	Position turtleData;
-	Position[] pos;
+	int counter;
+	int iStep = 0;
+	Timer runTimer;
+
 	public PanelEast() {
 		// Layout in east
-		pars=new Parser();
-		
+
 		this.setLayout(new BorderLayout());
 
 		JPanel inEastUp = new JPanel();
@@ -62,8 +54,9 @@ public class PanelEast extends JPanel implements ActionListener {
 		JButton reset = new JButton("Reset");
 		JButton help = new JButton("Help");
 
-		sliderSpeed.setMajorTickSpacing(10);
-		sliderSpeed.setMinorTickSpacing(0);
+		sliderSpeed.setMajorTickSpacing(1000);
+		sliderSpeed.setMaximum(5000);
+		sliderSpeed.setMinimum(0);
 		sliderSpeed.setPaintTicks(true);
 
 		run.addActionListener(this);
@@ -97,76 +90,26 @@ public class PanelEast extends JPanel implements ActionListener {
 		 */
 
 		if (action.equals("Run")) {
+			System.out.println(sliderSpeed.getValue());
+			runTimer = new Timer(sliderSpeed.getValue(), new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
 
-			Start.statusPane.status.setText("Run");
-			Start.statusPane.status.setForeground(Color.green);
+					Exchange exchange = new Exchange();
 
-			String[] textFieldInput = inputManual.getText().split("\\n"); 
-																			
-			try {
-				pos=pars.parseAll(textFieldInput);
-			} catch (ParserNotFoundException e) {
-
-				Start.statusPane.status.setText("Parser not found");
-				Start.statusPane.status.setForeground(Color.red);
-
-			} catch (SyntaxErrorException e) {
-
-				Start.statusPane.status.setText("Syntax Error");
-				Start.statusPane.status.setForeground(Color.red);
-			} catch (VariableAlreadyInUseException e) {
-
-				Start.statusPane.status.setText("Variable alreadi in use");
-				Start.statusPane.status.setForeground(Color.red);
-			} catch (VariableNotFoundException e) {
-
-				Start.statusPane.status.setText("Variable not found");
-				Start.statusPane.status.setForeground(Color.red);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			turtlePosition = pars.getTurtlePositions();
-			System.out.println(pos.length);
-
-			for (int i = 0; i < turtlePosition.length; i++) {
-				try {
-					Thread.sleep(sliderSpeed.getValue() * 10);
-				} catch (InterruptedException e) {
-					Start.statusPane.status.setText("Error - Interrupted");
-					Start.statusPane.status.setForeground(Color.red);
+					exchange.newPaint(iStep);
 
 				}
-				Start.statusPane.counter(turtlePosition.length - 1);
-				turtleData=turtlePosition[i];
-				Start.paintPane.paintLine = turtleData.getPenState();
-				Start.paintPane.endX = Start.paintPane.endX
-						+ turtleData.getPositionX();
-				Start.paintPane.endY = Start.paintPane.endY
-						+ turtleData.getPositionY();
-
-				Start.paintPane.repaint();
-
-				if (Start.paintPane.endX > 410 || Start.paintPane.endX < 0
-						|| Start.paintPane.endY > 560
-						|| Start.paintPane.endY < 0) {
-
-					Start.statusPane.status.setText("Turtle out of sight");
-					Start.statusPane.status.setForeground(Color.orange);
-
-				}
-
-				Start.statusPane.status.setText("Ready");
-				Start.statusPane.status.setForeground(Color.green);
-
-			}
+			});
+			runTimer.start();
 		}
 		/**
 		 * It will paint one step of the turtle line.
 		 */
 
 		else if (action.equals("Step")) {
-			// String[] textFieldInput = inputManual.getText().split("\\n");
+			Exchange exchange = new Exchange();
+
+			exchange.newPaint(iStep);
 
 		}
 		/**
@@ -272,6 +215,10 @@ public class PanelEast extends JPanel implements ActionListener {
 					JOptionPane.YES_NO_OPTION);
 
 			if (reset == 0) {
+				runTimer.stop();
+				iStep = 0;
+				Start.statusPane.counter
+						.setText(("Step counter: " + iStep + "  "));
 				Start.paintPane.paintLine = true;
 				Start.paintPane.startX = Start.paintPane.homeX;
 				Start.paintPane.endX = Start.paintPane.homeX;
@@ -292,4 +239,5 @@ public class PanelEast extends JPanel implements ActionListener {
 
 		}
 	}
+
 }

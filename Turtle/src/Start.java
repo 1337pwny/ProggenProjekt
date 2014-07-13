@@ -3,18 +3,37 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import logic.Parser;
+import logic.Position;
 
 
+/**
+ * Start JFrame with paintPane, workingPane and statusPane inside
+ * @author Benjamin Dähn
+ */
 
 public class Start {
 
-
+	/**
+	 * Paints turtle
+	 */
 	public static PanelWest paintPane = new PanelWest();
+
+	/**
+	 * Input from User
+	 */
 	public static PanelEast workingPane = new PanelEast();
+	
+	/**
+	 * Shows status and counter
+	 */
 	public static PanelSouth statusPane = new PanelSouth();
 
-	public static void main(String[] args) {
-		
+	/**
+	 * Ground Frame
+	 * @param args
+	 */
+	public static void main(String[] args)  {
 		
 		
 		JFrame ground = new JFrame();
