@@ -88,6 +88,10 @@ public class Parser {
 			String[] args=arguments[i].split(" ");
 			//Repeat is the only expression which is handled directly by the parser
 			if(args[0].equals("repeat")){
+				//Preventing ArrayOutOfBound error if there is no code after the repeat statement
+				if(arguments.length<=1){
+					throw new SyntaxErrorException();
+				}
 				if(arguments[i+1].equals("[")){ //Only if the following Bracket is found, the code should work.
 					loopPositionStart=i+2; //Here starts the loop content
 				}
