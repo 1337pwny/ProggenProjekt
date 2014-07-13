@@ -32,8 +32,8 @@ public class Backwards implements Parseable {
 			}
 		}
 		workPosition.setClearScreen(false);
-		workPosition.setPositionX((int)(workPosition.getPositionX()-distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
-		workPosition.setPositionY((int)(workPosition.getPositionY()-distance*Math.sin(Math.PI/180 * workPosition.getAngle())));
+		workPosition.setPositionX((int)(workPosition.getPositionX()+distance*Math.sin(Math.PI/180 * workPosition.getAngle())));
+		workPosition.setPositionY((int)(workPosition.getPositionY()+distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
 		workTurtle.setPosition(workPosition);
 		
 	}

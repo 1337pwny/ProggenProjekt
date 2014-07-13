@@ -31,10 +31,12 @@ public class Left implements Parseable{
 				throw e2;
 			}
 		}
-		if(angle<-180){
-			angle=-180;
+		int oldAngle=wp.getAngle();
+		angle=oldAngle+angle;
+		if(angle>180){
+			angle=180;
 		}
-		workPosition.setAngle(workPosition.getAngle()-angle);
+		workPosition.setAngle(angle);
 		workPosition.setClearScreen(false);
 		workTurtle.setPosition(workPosition);
 	}
