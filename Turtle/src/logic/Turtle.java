@@ -33,9 +33,10 @@ public class Turtle {
 	 * @throws Exception Throws VariableAlreadyInUseException if the variable is already taken
 	 */
 	public void addVariable(String name, int startValue) throws Exception{
+		Integer tmp=startValue;
 		if(variables.get(name)==null){
-			if(startValue!=0){
-				variables.put(name, startValue);
+			if(tmp!=0){
+				variables.put(name, tmp);
 			}
 			else{
 				variables.put(name, 0);
@@ -53,11 +54,12 @@ public class Turtle {
 	 * @throws VariableNotFoundException Throws VariableNotFoundException, if the desired variable could not be found
 	 */
 	public int getVariable(String name) throws VariableNotFoundException{
-		int tmp=(int) variables.get(name);
-		if(tmp!=0){
-			return tmp;
+		Integer tmp;
+		tmp=variables.get(name);
+		if(tmp==null){
+			throw new VariableNotFoundException();
 		}
-		throw new VariableNotFoundException();
+		return tmp.intValue();
 	}
 	
 	/**
@@ -66,7 +68,8 @@ public class Turtle {
 	 * @param value Value for the variable
 	 */
 	public void setVariable(String name, int value) {
-		variables.put(name, value);
+		Integer tmp=value;
+		variables.put(name, tmp);
 	}
 	
 	/**
