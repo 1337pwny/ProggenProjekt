@@ -72,46 +72,47 @@ public class Exchange {
 	public void newPaint(int iStep) {
 		Start.workingPane.iStep = iStep + 1;
 		iStep = iStep + 1;
-try{
-		if (iStep < pos.length) {
+		try {
+			if (iStep < pos.length) {
 
-			System.out.println(pos.length);
-			turtleData = turtlePosition[iStep];
-			Start.paintPane.paintLine = turtleData.getPenState();
-//Nils color Int wert			Start.paintPane.colorInt =    ; 
-			Start.paintPane.endX = Start.paintPane.endX
-					+ turtleData.getPositionX();
-			Start.paintPane.endY = Start.paintPane.endY
-					+ turtleData.getPositionY();
+				System.out.println(pos.length);
+				turtleData = turtlePosition[iStep];
+				Start.paintPane.paintLine = turtleData.getPenState();
+				Start.paintPane.colorInt = turtleData.getColor();
+				Start.paintPane.endX = Start.paintPane.endX
+						+ turtleData.getPositionX();
+				Start.paintPane.endY = Start.paintPane.endY
+						+ turtleData.getPositionY();
 
-			if (Start.paintPane.endX > 410 || Start.paintPane.endX < 0
-					|| Start.paintPane.endY > 560 || Start.paintPane.endY < 0) {
+				if (Start.paintPane.endX > 410 || Start.paintPane.endX < 0
+						|| Start.paintPane.endY > 560
+						|| Start.paintPane.endY < 0) {
 
-				Start.statusPane.status.setText("Turtle out of sight");
-				Start.statusPane.status.setForeground(Color.orange);
+					Start.statusPane.status.setText("Turtle out of sight");
+					Start.statusPane.status.setForeground(Color.orange);
+
+				} else {
+					Start.statusPane.status.setText("Run");
+					Start.statusPane.status.setForeground(Color.green);
+					Start.statusPane.counter
+							.setText(("Step counter: " + iStep + "  "));
+
+				}
 
 			} else {
-				Start.statusPane.status.setText("Run");
-				Start.statusPane.status.setForeground(Color.green);
-				Start.statusPane.counter
-						.setText(("Step counter: " + iStep + "  "));
-
+				Start.workingPane.iStep = 0;
+				try {
+					Start.workingPane.runTimer.stop();
+				} catch (NullPointerException e) {
+					Start.workingPane.runTimer.stop();
+				}
+				Start.statusPane.status.setText("no more steps");
+				Start.statusPane.status.setForeground(Color.orange);
 			}
+			Start.paintPane.repaint();
+		} catch (NullPointerException e) {
 
-		} else {
-			Start.workingPane.iStep = 0;
-			try {
-				Start.workingPane.runTimer.stop();
-			} catch (NullPointerException e) {
-				Start.workingPane.runTimer.stop();
-			}
-			Start.statusPane.status.setText("no more steps");
-			Start.statusPane.status.setForeground(Color.orange);
+			System.out.println("empty parser");
 		}
-		Start.paintPane.repaint();
 	}
-catch(NullPointerException e){
-
-	System.out.println("empty parser");
-}}
 }

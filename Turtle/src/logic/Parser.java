@@ -56,6 +56,7 @@ public class Parser {
 	 */
 	private void parse(String arguments) throws Exception{
 		String[] args=arguments.split(" ");
+		System.out.println("Searching for Parser: "+args[0]);
 		for (int i=0;i<parserList.size();i++){
 			if(parserList.get(i).getName().equals(args[0])){
 				try {

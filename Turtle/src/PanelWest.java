@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
@@ -7,7 +8,8 @@ import javax.swing.JPanel;
  * Variable homeX and homeY are the home position. Variable startX and startY
  * are for the line start. Variable endX and endY are the end position. Set
  * layout and background for the center/west Pane.
- * @author Benny
+ * 
+ * @author Bejamin Dähn
  */
 public class PanelWest extends JPanel {
 
@@ -35,34 +37,45 @@ public class PanelWest extends JPanel {
 		 */
 	}
 
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+	public void paint(Graphics g) {
+		this.paintComponent(g);
 
 		if (paintLine) {
 
-			if (colorInt == 0) {
+			switch (colorInt) {
 
+			case 0:
 				g.setColor(Color.black);
-			} else if (colorInt == 1) {
+				break;
+			case 1:
 				g.setColor(Color.blue);
-			} else if (colorInt == 2) {
+				break;
+			case 2:
+
 				g.setColor(Color.red);
-			} else if (colorInt == 3) {
+				break;
+			case 3:
 				g.setColor(Color.green);
+				break;
+			default:
+				g.setColor(Color.black);
+				break;
 			}
+			
+			g.drawLine(startX, startY, endX, endY);
+
+			double lengthArrow = 10;
+
+			double a = Math.PI / 4
+					- Math.atan2((endY - startY), (endX - startX));
+			double c = Math.cos(a) * lengthArrow;
+			double s = Math.sin(a) * lengthArrow;
+			g.drawLine(endX, endY, (int) (endX - s), (int) (endY - c));
+			g.drawLine(endX, endY, (int) (endX - c), (int) (endY + s));
+
 		}
-		g.drawLine(startX, startY, endX, endY);
-
-		double lengthArrow = 10;
-
-		double a = Math.PI / 4 - Math.atan2((endY - startY), (endX - startX));
-		double c = Math.cos(a) * lengthArrow;
-		double s = Math.sin(a) * lengthArrow;
-		g.drawLine(endX, endY, (int) (endX - s), (int) (endY - c));
-		g.drawLine(endX, endY, (int) (endX - c), (int) (endY + s));
-
+		startX = endX;
+		startY = endY;
 	}
-	// startX = endX;
-	// startY = endY;
 
 }
