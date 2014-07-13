@@ -22,7 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.Timer;
 /**
  * 
- * @author Benny
+ * @author Benjamin Dähn
  *
  */
 public class PanelEast extends JPanel implements ActionListener {

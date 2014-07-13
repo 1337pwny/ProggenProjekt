@@ -38,7 +38,7 @@
 		<item value="true" key="author"/>
 		<item value="" key="docletname"/>
 		<item value="1.7" key="source"/>
-		<item value="Turtle implementation by Nils Rohde" key="doctitle"/>
+		<item value="Turtle implementation by Nils Rohde and Benjamin Dähn" key="doctitle"/>
 		<item value="false" key="openinbrowser"/>
 		<item value="false" key="noindex"/>
 		<item value="" key="docletpath"/>

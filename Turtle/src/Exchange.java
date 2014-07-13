@@ -10,7 +10,7 @@ import exceptions.VariableNotFoundException;
 /**
  * Gives input from user to parser and data from parser to paint Pane
  * 
- * @author Benny
+ * @author Benjamin Dähn
  *
  */
 public class Exchange {

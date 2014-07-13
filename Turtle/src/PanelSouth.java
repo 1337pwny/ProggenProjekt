@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 public class PanelSouth extends JPanel {
 	/**
 	 * It shows the status line and step counter. 
-	 * @author Benny
+	 * @author Benjamin Dähn
 	 */
 	private static final long serialVersionUID = 1L;
 

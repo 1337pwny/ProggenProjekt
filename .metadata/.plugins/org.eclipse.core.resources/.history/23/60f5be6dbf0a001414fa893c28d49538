@@ -1,0 +1,121 @@
+import java.awt.Color;
+
+import logic.Parser;
+import logic.Position;
+import exceptions.ParserNotFoundException;
+import exceptions.SyntaxErrorException;
+import exceptions.VariableAlreadyInUseException;
+import exceptions.VariableNotFoundException;
+
+/**
+ * Gives input from user to parser and data from parser to paint Pane
+ * 
+ * @author Benny
+ *
+ */
+public class Exchange {
+
+	Parser pars;
+	Position[] turtlePosition;
+	Position turtleData;
+	Position[] pos;
+
+	public Exchange() {
+
+		Parser pars = new Parser();
+		Start.statusPane.status.setText("Run");
+		Start.statusPane.status.setForeground(Color.green);
+
+		String[] textFieldInput = Start.workingPane.inputManual.getText()
+				.split("\\n");
+
+		try {
+			pos = pars.parseAll(textFieldInput);
+		} catch (ParserNotFoundException e) {
+
+			Start.statusPane.status.setText("Parser not found");
+			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
+			return;
+
+		} catch (SyntaxErrorException e) {
+
+			Start.statusPane.status.setText("Syntax Error");
+			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
+			return;
+		} catch (VariableAlreadyInUseException e) {
+
+			Start.statusPane.status.setText("Variable alreadi in use");
+			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
+			return;
+
+		} catch (VariableNotFoundException e) {
+
+			Start.statusPane.status.setText("Variable not found");
+			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
+			return;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+
+		turtlePosition = pars.getTurtlePositions();
+	}
+
+	/**
+	 * Fetch paint data, give status and count program counter
+	 * 
+	 * @param iStep
+	 *            - program counter
+	 */
+	public void newPaint(int iStep) {
+		Start.workingPane.iStep = iStep + 1;
+		iStep = iStep + 1;
+		try {
+			if (iStep < pos.length) {
+
+				System.out.println(pos.length);
+				turtleData = turtlePosition[iStep];
+				Start.paintPane.setPos(turtlePosition);
+				Start.paintPane.paintLine = turtleData.getPenState();
+				Start.paintPane.colorInt = turtleData.getColor();
+				Start.paintPane.endX = Start.paintPane.endX
+						+ turtleData.getPositionX();
+				Start.paintPane.endY = Start.paintPane.endY
+						+ turtleData.getPositionY();
+
+				if (Start.paintPane.endX > 410 || Start.paintPane.endX < 0
+						|| Start.paintPane.endY > 560
+						|| Start.paintPane.endY < 0) {
+
+					Start.statusPane.status.setText("Turtle out of sight");
+					Start.statusPane.status.setForeground(Color.orange);
+
+				} else {
+					Start.statusPane.status.setText("Run");
+					Start.statusPane.status.setForeground(Color.green);
+					Start.statusPane.counter
+							.setText(("Step counter: " + iStep + "  "));
+
+				}
+
+			} else {
+				Start.workingPane.iStep = 0;
+				try {
+					Start.workingPane.runTimer.stop();
+				} catch (NullPointerException e) {
+					Start.workingPane.runTimer.stop();
+				}
+				Start.statusPane.status.setText("no more steps");
+				Start.statusPane.status.setForeground(Color.orange);
+			}
+			Start.paintPane.repaint();
+		} catch (NullPointerException e) {
+
+			System.out.println("empty parser");
+		}
+	}
+}
