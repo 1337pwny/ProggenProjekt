@@ -7,7 +7,6 @@ import javax.swing.JPanel;
  * Variable homeX and homeY are the home position. Variable startX and startY
  * are for the line start. Variable endX and endY are the end position. Set
  * layout and background for the center/west Pane.
- * @author Benny
  */
 public class PanelWest extends JPanel {
 

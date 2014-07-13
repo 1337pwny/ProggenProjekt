@@ -20,11 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
-/**
- * 
- * @author Benny
- *
- */
+
 public class PanelEast extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
