@@ -35,23 +35,27 @@ public class Exchange {
 
 			Start.statusPane.status.setText("Parser not found");
 			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
 			return;
 
 		} catch (SyntaxErrorException e) {
 
 			Start.statusPane.status.setText("Syntax Error");
 			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
 			return;
 		} catch (VariableAlreadyInUseException e) {
 
 			Start.statusPane.status.setText("Variable alreadi in use");
 			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
 			return;
 
 		} catch (VariableNotFoundException e) {
 
 			Start.statusPane.status.setText("Variable not found");
 			Start.statusPane.status.setForeground(Color.red);
+			Start.workingPane.runTimer.stop();
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,8 +63,6 @@ public class Exchange {
 		}
 
 		turtlePosition = pars.getTurtlePositions();
-
-		// for (int i = 0; i < counter; i++) {
 	}
 
 	/**
@@ -77,6 +79,7 @@ public class Exchange {
 
 				System.out.println(pos.length);
 				turtleData = turtlePosition[iStep];
+				Start.paintPane.setPos(turtlePosition);
 				Start.paintPane.paintLine = turtleData.getPenState();
 				Start.paintPane.colorInt = turtleData.getColor();
 				Start.paintPane.endX = Start.paintPane.endX
