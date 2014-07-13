@@ -1,7 +1,8 @@
 package parsers;
 /**
- *@author Nils Rohde
  * Sets the clearState.
+ * @author Nils Rohde
+ * @throws VariableNotFoundException
  */
 
 import logic.Parseable;

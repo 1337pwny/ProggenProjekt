@@ -1,7 +1,8 @@
 package parsers;
 /**
- * @author Nils Rohde
  *Sets the virtual pen down.
+ * @author Nils Rohde
+ * @throws VariableNotFoundException
  */
 import logic.Parseable;
 import logic.Position;

@@ -1,7 +1,7 @@
 package logic;
 /**
- * @author Nils Rohde
  * Container class for the position of the Turtle.
+ * @author Nils Rohde
  */
 public class Position {
 	private int positionX;

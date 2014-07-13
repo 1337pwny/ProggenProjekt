@@ -1,7 +1,7 @@
 package exceptions;
 /**
- *@author Nils Rohde
  * Is thrown, if a syntax error was found.
+ * @author Nils Rohde
  */
 public class SyntaxErrorException extends Exception {
 

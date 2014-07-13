@@ -1,7 +1,7 @@
 package parsers;
 /**
- * @author Nils Rohde
  *Sets the virtual pen up.
+ * @author Nils Rohde
  */
 import logic.Parseable;
 import logic.Position;

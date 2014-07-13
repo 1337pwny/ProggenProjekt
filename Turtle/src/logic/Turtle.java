@@ -7,8 +7,8 @@ import java.util.List;
 import exceptions.VariableAlreadyInUseException;
 import exceptions.VariableNotFoundException;
 /**
- * @author Nils Rohde
  * Virtual Turtle. Stores Variables and all Positions.
+ * @author Nils Rohde
  */
 public class Turtle {
 	private Position actualPosition;

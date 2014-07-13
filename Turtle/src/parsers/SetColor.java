@@ -6,10 +6,9 @@ import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
 /**
- * @author Nils Rohde
  * Sets the new color for the Turtle.
  * throws SyntaxErrorException if the specified color is out of range. If a variable could not be found, a VariableNotFoundException is thrown
- * @throws SyntaxErrorException or VariableNotFoundException
+ * @author Nils Rohde
  */
 public class SetColor implements Parseable {
 
