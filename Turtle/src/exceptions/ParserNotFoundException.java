@@ -1,6 +1,6 @@
 package exceptions;
 /**
- * 
+ * @author Nils Rohde
  * Is thrown, if the desired parser could not be found.
  */
 public class ParserNotFoundException extends Exception {

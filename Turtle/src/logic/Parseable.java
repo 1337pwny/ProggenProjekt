@@ -1,5 +1,6 @@
 package logic;
 /**
+ * @author Nils Rohde
  * Interface for all  parsers except the repeat parser.
  */
 

@@ -16,8 +16,8 @@ import parsers.Reset;
 import parsers.Right;
 import parsers.SetColor;
 /**
+ * @author Nils Rohde
  * Coordinates the parsing of the Logo code. It calls the different parsers.
- *
  */
 public class Parser {
 	private List<Parseable> parserList;

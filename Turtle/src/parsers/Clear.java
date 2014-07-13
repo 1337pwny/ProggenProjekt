@@ -1,6 +1,7 @@
 package parsers;
 /**
- *Sets the clearState.
+ *@author Nils Rohde
+ * Sets the clearState.
  */
 
 import logic.Parseable;

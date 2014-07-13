@@ -4,6 +4,7 @@ import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
 /**
+ * @author Nils Rohde
  * Resets the Turtle Position to its starting point.
  */
 public class Reset implements Parseable{

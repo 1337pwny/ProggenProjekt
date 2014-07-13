@@ -1,6 +1,6 @@
 package exceptions;
 /**
- *
+ *@author Nils Rohde
  * Is thrown, if the desired variable could not be found.
  */
 public class VariableNotFoundException extends Exception{

@@ -4,6 +4,7 @@ import logic.Parseable;
 import logic.Turtle;
 import logic.Position;
 /**
+ * @author Nils Rohde
  * Moves the Turtle backwards.
  */
 public class Backwards implements Parseable {

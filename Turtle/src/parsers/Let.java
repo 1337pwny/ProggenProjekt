@@ -1,5 +1,6 @@
 package parsers;
 /**
+ * @author Nils Rohde
  *Alters the value of a variable. If the variable could not be found, it will be created. Throws SyntaxErrorException.
  */
 import exceptions.SyntaxErrorException;

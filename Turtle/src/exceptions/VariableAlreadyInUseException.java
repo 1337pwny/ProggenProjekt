@@ -1,6 +1,6 @@
 package exceptions;
 /**
- *
+ *@author Nils Rohde
  * Is thrown, if the desired variable is already in use.
  */
 public class VariableAlreadyInUseException extends Exception{

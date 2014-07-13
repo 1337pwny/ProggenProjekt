@@ -1,5 +1,6 @@
 package parsers;
 /**
+ * @author Nils Rohde
  *Alters the angle of the Turtle to the left. If the angle exceeds -180 degree is set to -180 degree.
  */
 import exceptions.VariableNotFoundException;

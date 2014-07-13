@@ -4,6 +4,7 @@ import logic.Parseable;
 import logic.Turtle;
 import logic.Position;
 /**
+ * @author Nils Rohde
  * Moves the Turtle forwards.
  */
 public class Forward implements Parseable {
@@ -30,8 +31,8 @@ public class Forward implements Parseable {
 		}
 		workPosition.setClearScreen(false);
 		//setting the positions
-		workPosition.setPositionX((int)(workPosition.getPositionX()+distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
-		workPosition.setPositionY((int)(workPosition.getPositionY()+distance*Math.sin(Math.PI/180 * workPosition.getAngle())));
+		workPosition.setPositionX((int)(workPosition.getPositionX()-distance*Math.sin(Math.PI/180 * workPosition.getAngle())));
+		workPosition.setPositionY((int)(workPosition.getPositionY()-distance*Math.cos(Math.PI/180 * workPosition.getAngle())));
 		workTurtle.setPosition(workPosition);
 	}
 	

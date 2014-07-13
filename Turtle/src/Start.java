@@ -3,9 +3,6 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import logic.Parser;
-import logic.Position;
-
 
 /**
  * Start JFrame with paintPane, workingPane and statusPane inside
