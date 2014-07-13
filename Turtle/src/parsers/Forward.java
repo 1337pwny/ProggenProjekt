@@ -1,4 +1,5 @@
 package parsers;
+import exceptions.SyntaxErrorException;
 import exceptions.VariableNotFoundException;
 import logic.Parseable;
 import logic.Turtle;
@@ -15,6 +16,10 @@ public class Forward implements Parseable {
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args)throws Exception {
+		//Preventing overflow
+		if(args.length<2){
+			throw new SyntaxErrorException();
+		}
 		Position wp=workTurtle.getActualPosition();
 		Position workPosition=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		int distance=0;

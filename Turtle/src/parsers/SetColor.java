@@ -19,6 +19,10 @@ public class SetColor implements Parseable {
 
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
+		//Preventing overflow
+		if(args.length<2){
+			throw new SyntaxErrorException();
+		}
 		Position wp=workTurtle.getActualPosition();
 		Position tmp=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
 		int color;

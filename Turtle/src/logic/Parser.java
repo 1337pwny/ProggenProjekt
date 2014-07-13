@@ -79,12 +79,14 @@ public class Parser {
 	 * @throws Exception If an error occurs it throws either ParserNotFoundException, SyntaxErrorException, VariableAlreadyInUseException or VariableNotFoundException.
 	 */
 	public Position[] parseAll(String[] arguments) throws Exception{
+		//Preventing problems caused by no entered code
 		if(arguments.length==1 && arguments[0].equals("")){
 			throw new SyntaxErrorException();
 		}
 		int loopPositionStart=0;	//Marker for loopStart
 		int LoopPositionEnd=0;	//Marker for loopEnd
 		for(int i=0;i<arguments.length;i++){
+			//Splitting the line of code into Order and value (Space as divider)
 			String[] args=arguments[i].split(" ");
 			//Repeat is the only expression which is handled directly by the parser
 			if(args[0].equals("repeat")){
@@ -105,7 +107,7 @@ public class Parser {
 						LoopPositionEnd=j-1;
 						break;
 					}
-					//Condition if there is no closing bracket for the loop
+					//Condition if there is no closing bracket for the loop (Basically it may be wayne, but just in case ;) )
 					if(j==arguments.length-1 && !arguments[j].equals("]")){
 						throw new SyntaxErrorException();
 					}
