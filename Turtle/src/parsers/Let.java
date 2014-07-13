@@ -17,6 +17,10 @@ public class Let implements Parseable {
 	@Override
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		int var;
+		//If no value is specified
+		if(args.length<3){
+			throw new SyntaxErrorException();
+		}
 		try{
 			var=Integer.parseInt(args[2]);
 		}

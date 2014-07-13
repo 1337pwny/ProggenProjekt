@@ -9,7 +9,7 @@ public class Position {
 	private int angle;
 	boolean penState;
 	boolean clearScreen;
-	String color;
+	int color;
 	
 	/**
 	  * Initializes the Position with standard values.
@@ -20,7 +20,7 @@ public class Position {
 		this.angle = 0;
 		this.penState=true;
 		this.clearScreen=false;
-		this.color="black";
+		this.color=0;
 	}
 	/**
 	 * Initializes a Position object with predefined variables
@@ -31,7 +31,7 @@ public class Position {
 	 * @param clear Clear attribute
 	 * @param color Color
 	 */
-	public Position(int posX, int posY, int angle, boolean penState, boolean clear, String color){
+	public Position(int posX, int posY, int angle, boolean penState, boolean clear, int color){
 		this.positionX = posX;
 		this.positionY = posY;
 		this.angle = angle;
@@ -44,7 +44,7 @@ public class Position {
 	 * Returns the drawing color.
 	 * @return drawing color
 	 */
-	public String getColor(){
+	public int getColor(){
 		return color;
 	}
 	
@@ -52,7 +52,7 @@ public class Position {
 	 * Sets the drawing color.
 	 * @param color new drawing color
 	 */
-	public void setColor(String color){
+	public void setColor(int color){
 		this.color=color;
 	}
 	

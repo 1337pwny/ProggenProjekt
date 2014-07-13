@@ -78,6 +78,7 @@ try{
 			System.out.println(pos.length);
 			turtleData = turtlePosition[iStep];
 			Start.paintPane.paintLine = turtleData.getPenState();
+//Nils color Int wert			Start.paintPane.colorInt =    ; 
 			Start.paintPane.endX = Start.paintPane.endX
 					+ turtleData.getPositionX();
 			Start.paintPane.endY = Start.paintPane.endY

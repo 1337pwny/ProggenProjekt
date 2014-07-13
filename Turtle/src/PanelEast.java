@@ -25,11 +25,12 @@ public class PanelEast extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	JTextArea inputManual = new JTextArea(28, 0);
+	JTextArea inputManual = new JTextArea(27, 0);
 	JSlider sliderSpeed = new JSlider();
 	int counter;
 	int iStep = 0;
 	Timer runTimer;
+	Exchange exchange;
 
 	public PanelEast() {
 		// Layout in east
@@ -58,6 +59,9 @@ public class PanelEast extends JPanel implements ActionListener {
 		sliderSpeed.setMaximum(5000);
 		sliderSpeed.setMinimum(0);
 		sliderSpeed.setPaintTicks(true);
+		sliderSpeed.setPaintLabels(true);
+		
+		sliderSpeed.setLabelTable(sliderSpeed.createStandardLabels(1000));
 
 		run.addActionListener(this);
 		step.addActionListener(this);
@@ -215,7 +219,12 @@ public class PanelEast extends JPanel implements ActionListener {
 					JOptionPane.YES_NO_OPTION);
 
 			if (reset == 0) {
-				runTimer.stop();
+				try{
+					runTimer.stop();
+				}
+				catch(NullPointerException e){
+					
+				}
 				iStep = 0;
 				Start.statusPane.counter
 						.setText(("Step counter: " + iStep + "  "));

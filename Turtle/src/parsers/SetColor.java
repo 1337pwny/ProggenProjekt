@@ -1,11 +1,15 @@
 package parsers;
 
+import exceptions.SyntaxErrorException;
+import exceptions.VariableNotFoundException;
 import logic.Parseable;
 import logic.Position;
 import logic.Turtle;
 /**
  * @author Nils Rohde
  * Sets the new color for the Turtle.
+ * throws SyntaxErrorException if the specified color is out of range. If a variable could not be found, a VariableNotFoundException is thrown
+ * @throws SyntaxErrorException or VariableNotFoundException
  */
 public class SetColor implements Parseable {
 
@@ -18,7 +22,22 @@ public class SetColor implements Parseable {
 	public void handleTurtle(Turtle workTurtle, String[] args) throws Exception {
 		Position wp=workTurtle.getActualPosition();
 		Position tmp=new Position(wp.getPositionX(),wp.getPositionY(),wp.getAngle(),wp.getPenState(),wp.getClearScreen(),wp.getColor());
-		tmp.setColor(args[1]);
+		int color;
+		try{
+			color=Integer.parseInt(args[1]);
+		}//Else its assumed to be a variable --> Fail: Throw unknowVariableException
+		catch(NumberFormatException e){
+			try{
+				color=workTurtle.getVariable(args[1]);
+			}
+			catch(VariableNotFoundException e2){
+				throw e2;
+			}
+		}
+		if(color<0 || color>3){
+			throw new SyntaxErrorException();
+		}
+		tmp.setColor(color);
 		tmp.setClearScreen(false);
 		workTurtle.setPosition(tmp);
 	}
